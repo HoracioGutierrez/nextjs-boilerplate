@@ -11,5 +11,29 @@ export const {
 } = NextAuth({
     adapter: PrismaAdapter(prisma),
     session: { strategy: "jwt" },
+    callbacks: {
+        async session({ session, user, token }) {
+            if (session) {
+                const client = await new PrismaClient()
+
+                const query = await client.user.findUnique({
+                    where: {
+                        email: session.user.email
+                    }
+                })
+
+                return {
+                    ...session,
+                    user : {
+                        ...session.user,
+                        ...query
+                    }
+                }
+
+            }
+
+            return session
+        },
+    },
     ...authConfig
 })
