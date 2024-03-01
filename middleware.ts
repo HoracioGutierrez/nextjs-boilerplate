@@ -15,6 +15,13 @@ export default auth((req: NextAuthRequest) => {
     if (url.pathname.includes("login") && sessionToken) {
         return Response.redirect(new URL("/", req.url))
     }
+
+    if (!sessionToken && (
+        url.pathname.includes("dashboard")
+    )) {
+        return Response.redirect(new URL("/", req.url))
+    }
+
     return NextResponse.next()
 })
 
