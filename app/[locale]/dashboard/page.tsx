@@ -14,7 +14,7 @@ async function DashboardPage() {
 
     console.log("🚀 ~ DashboardPage ~ data:", data)
     return (
-        <div>{t("hello")}</div>
+        <div>{t("hello")} {data.user.email}</div>
     )
 }
 
