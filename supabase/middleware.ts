@@ -1,9 +1,15 @@
 import { createServerClient } from '@supabase/ssr'
+import { createI18nMiddleware } from 'next-international/middleware'
 import { NextResponse, type NextRequest } from 'next/server'
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
     request,
+  })
+
+  const I18nMiddleware = createI18nMiddleware({
+    locales: ['en', 'es'],
+    defaultLocale: 'en'
   })
 
   const supabase = createServerClient(
@@ -40,9 +46,9 @@ export async function updateSession(request: NextRequest) {
   if (
     !user &&
     !request.nextUrl.pathname.startsWith('/') &&
-    !request.nextUrl.pathname.startsWith('/login') &&
-    !request.nextUrl.pathname.startsWith('/signup') &&
-    !request.nextUrl.pathname.startsWith('/auth')
+    !request.nextUrl.pathname.includes('login') &&
+    !request.nextUrl.pathname.includes('signup') &&
+    !request.nextUrl.pathname.includes('auth')
   ) {
     // no user, potentially respond by redirecting the user to the login page
     const url = request.nextUrl.clone()
@@ -52,7 +58,7 @@ export async function updateSession(request: NextRequest) {
 
   if (
     user &&
-    (request.nextUrl.pathname.startsWith('/login') || request.nextUrl.pathname.startsWith('/signup'))
+    (request.nextUrl.pathname.includes('login') || request.nextUrl.pathname.includes('signup'))
   ) {
     // user is logged in, potentially respond by redirecting the user to the home page
     const url = request.nextUrl.clone()
@@ -72,5 +78,6 @@ export async function updateSession(request: NextRequest) {
   // If this is not done, you may be causing the browser and server to go out
   // of sync and terminate the user's session prematurely!
 
-  return supabaseResponse
+  return I18nMiddleware(request)
+  //return supabaseResponse -> Old original response
 }
