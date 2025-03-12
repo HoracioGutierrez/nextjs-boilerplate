@@ -1,6 +1,5 @@
 import { handleSignUp } from '@/actions/handleSignUp';
 import SignUpButton from '@/components/signup/signup-button';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Form from 'next/form'
