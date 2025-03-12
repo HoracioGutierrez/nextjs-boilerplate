@@ -1,12 +1,12 @@
 import { users } from "@/prisma/generated/prisma-client-js";
 import client from "@/prisma/prisma-client";
 
-export const getUser = async () => {
+export const getUsers = async () => {
     try {
         const result: users[] = await client.users.findMany()
-        
+
         return {
-            payload: result,
+            data: result,
             hasError: false,
             errorMessage: "",
         }
@@ -14,14 +14,14 @@ export const getUser = async () => {
 
         if (error instanceof Error) {
             return {
-                payload: [],
+                data: [],
                 hasError: true,
                 errorMessage: error.message,
             }
         }
 
         return {
-            payload: [],
+            data: [],
             hasError: true,
             errorMessage: "An error occurred while fetching data",
         }

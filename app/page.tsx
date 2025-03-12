@@ -1,12 +1,12 @@
-import { getUser } from "@/actions/getUsers";
+import { getUsers } from "@/actions/getUsers";
 
 export default async function Home() {
 
-  const { payload, errorMessage, hasError } = await getUser()
+  const { data, errorMessage, hasError } = await getUsers()
 
   return (
     <div className="font-[family-name:var(--font-geist-sans)]">
-      
+
     </div>
   );
 }
