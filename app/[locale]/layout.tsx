@@ -33,7 +33,9 @@ function RootLayout({ children }: RootLayoutProps) {
           disableTransitionOnChange
         >
           <Header />
-          {children}
+          <main className="p-2 md:p-4">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>
