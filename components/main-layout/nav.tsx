@@ -11,6 +11,7 @@ async function Nav() {
     const supabase = await createClient()
     const { data } = await supabase.auth.getUser()
 
+    console.log("🚀 ~ Nav ~ data:", data)
     const filteredLinks = links.filter((link) => {
         if (link.visible === "always") return true
         if (link.visible === "auth") return !!data.user

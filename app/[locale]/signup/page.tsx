@@ -1,4 +1,5 @@
 import { handleSignUp } from '@/actions/handleSignUp';
+import GoogleAuthButton from '@/components/google-auth/google-auth';
 import SignUpButton from '@/components/signup/signup-button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -19,6 +20,7 @@ function SignupPage() {
                     <Input type='password' id='password' name="password" placeholder='password' />
                 </div>
                 <SignUpButton />
+                <GoogleAuthButton/>
             </Form>
         </section>
     )

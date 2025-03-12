@@ -1,4 +1,5 @@
 import { handleSignIn } from "@/actions/handleSignIn"
+import GoogleAuthButton from "@/components/google-auth/google-auth"
 import SignInButton from "@/components/signin/signin-button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -18,6 +19,7 @@ function LoginPage() {
                     <Input type='password' id='password' name="password" placeholder='password' />
                 </div>
                 <SignInButton />
+                <GoogleAuthButton/>
             </Form>
         </section>
     )
