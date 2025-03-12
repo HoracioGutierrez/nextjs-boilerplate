@@ -1,8 +1,9 @@
 import { getUsers } from "@/actions/getUsers";
 
-export default async function Home() {
+async function HomePage() {
 
   const { data, errorMessage, hasError } = await getUsers()
+  console.log("🚀 ~ Home ~ data:", data)
 
   return (
     <div className="font-[family-name:var(--font-geist-sans)]">
@@ -10,3 +11,5 @@ export default async function Home() {
     </div>
   );
 }
+
+export default HomePage;

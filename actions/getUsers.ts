@@ -1,3 +1,4 @@
+"use server";
 import { users } from "@/prisma/generated/prisma-client-js";
 import client from "@/prisma/prisma-client";
 
