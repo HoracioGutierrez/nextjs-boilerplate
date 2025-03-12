@@ -1,4 +1,5 @@
 import { handleSignUp } from '@/actions/handleSignUp';
+import SignUpButton from '@/components/signup/signup-button';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -16,7 +17,7 @@ function SignupPage() {
                 <Label htmlFor='password'>Password</Label>
                 <Input type='password' id='password' name="password" placeholder='password' />
             </div>
-            <Button>Sign up</Button>
+            <SignUpButton />
         </Form>
     )
 }
