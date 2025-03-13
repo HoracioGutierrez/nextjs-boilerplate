@@ -1,6 +1,6 @@
 "use server"
 
-import { userSchema, userWithProfile } from "@/lib/schemas"
+import { userWithProfile } from "@/lib/schemas"
 import client from "@/prisma/prisma-client"
 import { createClient } from "@/supabase/server"
 import { revalidatePath } from "next/cache"
