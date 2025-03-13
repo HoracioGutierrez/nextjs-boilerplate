@@ -46,8 +46,8 @@ async function DashboardPage() {
                         <div>
                             <h3 className="font-bold text-xl">{
                                 data.user.user_metadata.first_name && data.user.user_metadata.last_name ?
-                                data.user.user_metadata.first_name + " " + data.user.user_metadata.last_name :
-                                "No name set"
+                                    data.user.user_metadata.first_name + " " + data.user.user_metadata.last_name :
+                                    "No name set"
                             } </h3>
                             <p className="text-muted-foreground">{data.user.email}</p>
                         </div>
@@ -56,7 +56,7 @@ async function DashboardPage() {
                 <div className="border p-2 md:p-4 rounded-lg">
                     <div className="flex justify-between items-center mb-5">
                         <h3 className="font-bold text-xl">{t("dashboard.sections.personal_info.title")}</h3>
-                        <AccountModal />
+                        <AccountModal user={data.user || {}} />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl">
                         <div>
