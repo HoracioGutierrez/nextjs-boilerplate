@@ -8,8 +8,7 @@ export const handleGoogleSignUp = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: "http://localhost:3000/en/auth/callback" } })
 
     if (error) {
-        console.error(error)
-        return
+        throw new Error(error.message)
     }
 
     if (data.url) {
