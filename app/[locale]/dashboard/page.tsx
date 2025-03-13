@@ -17,10 +17,10 @@ async function DashboardPage() {
 
     return (
         <section className="grow flex flex-col">
-            <h2 className="font-bold text-2xl mb-16">{t("dashboard.title")}</h2>
+            <h2 className="font-bold text-2xl mb-10">{t("dashboard.title")}</h2>
             <div className="flex flex-col gap-8">
                 <div className="border p-2 md:p-4 rounded-lg">
-                    <div className="flex justify-between items-center mb-8">
+                    <div className="flex justify-between items-center mb-5">
                         <h3 className="font-bold text-xl">{t("dashboard.sections.account.title")}</h3>
                         <Button variant="ghost" size="icon" className="rounded-full p-2">
                             <Edit />
@@ -52,7 +52,7 @@ async function DashboardPage() {
                     </div>
                 </div>
                 <div className="border p-2 md:p-4 rounded-lg">
-                    <div className="flex justify-between items-center mb-8">
+                    <div className="flex justify-between items-center mb-5">
                         <h3 className="font-bold text-xl">{t("dashboard.sections.personal_info.title")}</h3>
                         <Button variant="ghost" size="icon" className="rounded-full p-2">
                             <Edit />
