@@ -17,11 +17,11 @@ async function DashboardPage() {
 
     return (
         <section className="grow flex flex-col">
-            <h2 className="font-bold text-2xl mb-16">Perfil</h2>
+            <h2 className="font-bold text-2xl mb-16">{t("dashboard.title")}</h2>
             <div className="flex flex-col gap-8">
                 <div className="border p-2 md:p-4 rounded-lg">
                     <div className="flex justify-between items-center mb-8">
-                        <h3 className="font-bold text-xl">Account Info</h3>
+                        <h3 className="font-bold text-xl">{t("dashboard.sections.account.title")}</h3>
                         <Button variant="ghost" size="icon" className="rounded-full p-2">
                             <Edit />
                         </Button>
@@ -53,26 +53,34 @@ async function DashboardPage() {
                 </div>
                 <div className="border p-2 md:p-4 rounded-lg">
                     <div className="flex justify-between items-center mb-8">
-                        <h3 className="font-bold text-xl">Personal Info</h3>
+                        <h3 className="font-bold text-xl">{t("dashboard.sections.personal_info.title")}</h3>
                         <Button variant="ghost" size="icon" className="rounded-full p-2">
                             <Edit />
                         </Button>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl">
                         <div>
-                            <label className="block text-sm font-medium text-muted-foreground/30 dark:text-muted">First Name</label>
+                            <label className="block text-sm font-medium text-muted-foreground/30 dark:text-muted">
+                                {t("dashboard.sections.personal_info.first_name")}
+                            </label>
                             <p className="text-muted-foreground">{data.user.user_metadata.first_name || "Not set"}</p>
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-muted-foreground/30 dark:text-muted">Last Name</label>
+                            <label className="block text-sm font-medium text-muted-foreground/30 dark:text-muted">
+                                {t("dashboard.sections.personal_info.last_name")}
+                            </label>
                             <p className="text-muted-foreground">{data.user.user_metadata.last_name || "Not set"}</p>
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-muted-foreground/30 dark:text-muted">Email</label>
+                            <label className="block text-sm font-medium text-muted-foreground/30 dark:text-muted">
+                                {t("dashboard.sections.personal_info.email")}
+                            </label>
                             <p className="text-muted-foreground">{data.user.email || "Not set"}</p>
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-muted-foreground/30 dark:text-muted">Phone</label>
+                            <label className="block text-sm font-medium text-muted-foreground/30 dark:text-muted">
+                                {t("dashboard.sections.personal_info.phone")}
+                            </label>
                             <p className="text-muted-foreground">{data.user.user_metadata.phone || "Not set"}</p>
                         </div>
                     </div>
