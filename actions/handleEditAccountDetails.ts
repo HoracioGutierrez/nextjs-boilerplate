@@ -13,10 +13,8 @@ export const handleEditAccountDetails = async (formData: FormData) => {
     const userWithNewData = { email, phone, first_name, last_name }
 
     const t = userWithProfile.isValidSync(userWithNewData)
-    console.log("🚀 ~ handleEditAccountDetails ~ t", t)
 
     if (!userWithProfile.isValidSync(userWithNewData)) {
-        console.log("🚀 ~ handleEditAccountDetails ~ userWithNewData:", userWithNewData)
         throw new Error('Invalid user data');
     }
 

@@ -9,11 +9,12 @@ import { handleEditAccountDetails } from "@/actions/handleEditAccountDetails"
 import AccountModalButton from "./acount-modal-button"
 import { useState } from "react"
 import toast from "react-hot-toast"
+import { useI18n } from "@/locales/client"
 
 function AccountModal({ user }: { user: any }) {
 
     const [isModalOpen, setIsModalOpen] = useState(false)
-
+    
     const handleCloseModal = () => setIsModalOpen(false)
 
     const handleFormAction = async (formData:FormData) => {
