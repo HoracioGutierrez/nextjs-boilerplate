@@ -5,11 +5,13 @@ import { ModeToggle } from "./mode-toggle"
 import LangToggle from "./lang-toggle"
 import { createClient } from "@/supabase/server"
 import { Button } from "../ui/button"
+import { getI18n } from "@/locales/server"
 
 async function Nav() {
 
     const supabase = await createClient()
     const { data } = await supabase.auth.getUser()
+    const t = await getI18n()
 
     const filteredLinks = links.filter((link) => {
         if (link.visible === "always") return true
@@ -23,7 +25,7 @@ async function Nav() {
             {filteredLinks.map((link) => {
                 return (
                     <Button asChild variant="link" key={link.id} className="text-sm p-0">
-                        <Link href={link.href}>{link.text}</Link>
+                        <Link href={link.href}>{t(`layout.links.${link.text}` as any, {})}</Link>
                     </Button>
                 )
             })}

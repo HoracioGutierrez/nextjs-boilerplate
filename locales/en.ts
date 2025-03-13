@@ -14,5 +14,25 @@ export default {
                 'phone': 'Phone'
             }
         }
+    },
+    'home' : {
+        'button-get-started': 'Get started',
+        'button-learn-more': 'Learn more',
+    },
+    'layout' : {
+        'links' : {
+            'home': 'home',
+            'signup': 'sign Up',
+            'login': 'log in',
+            'dashboard': 'dashboard',
+            'logout': 'logout'
+        },
+        'locale' : {
+            'loading': 'Changing locale...'
+        },
+        'footer' : {
+            'copyright' : "All rights reserved.",
+            'created_by' : "Created by"
+        }
     }
 } as const

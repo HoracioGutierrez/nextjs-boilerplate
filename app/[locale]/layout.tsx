@@ -6,6 +6,8 @@ import { ThemeProvider } from "@/components/main-layout/theme-provider";
 import Footer from "@/components/main-layout/footer";
 import { Toaster } from 'react-hot-toast';
 import "./globals.css";
+import { getCurrentLocale, getI18n } from "@/locales/server";
+import { I18nProviderClient } from "@/locales/client";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,9 +24,10 @@ export const metadata: Metadata = {
   description: "NextJS Boilerplate with TypeScript, TailwindCSS, Internationalization, Supabase and more.",
 };
 
-function RootLayout({ children }: RootLayoutProps) {
+async function RootLayout({ children }: RootLayoutProps) {
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={await getCurrentLocale() || "es"} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-dvh flex flex-col`}
       >
@@ -34,12 +37,14 @@ function RootLayout({ children }: RootLayoutProps) {
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          <main className="p-2 md:p-4 grow flex-col flex">
-            {children}
-          </main>
-          <Footer/>
-          <Toaster/>
+          <I18nProviderClient locale={await getCurrentLocale() || "es"}>
+            <Header />
+            <main className="p-2 md:p-4 grow flex-col flex">
+              {children}
+            </main>
+            <Footer />
+            <Toaster />
+          </I18nProviderClient>
         </ThemeProvider>
       </body>
     </html>

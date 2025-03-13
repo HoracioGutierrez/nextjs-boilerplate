@@ -1,6 +1,10 @@
 import { Button } from "@/components/ui/button";
+import { getI18n } from "@/locales/server";
+import Link from "next/link";
 
 async function HomePage() {
+
+  const t = await getI18n()
 
   return (
     <section className="font-[family-name:var(--font-geist-sans)] grow flex flex-col justify-center">
@@ -10,8 +14,16 @@ async function HomePage() {
         </h1>
         <p className="px-8 mt-8 mb-12 text-lg max-w-[50ch]">Cupiditate minima voluptate temporibus quia? Architecto beatae esse ab amet vero eaque explicabo!</p>
         <div className="flex flex-wrap justify-center gap-2">
-          <Button variant="outline" size="lg">Get started</Button>
-          <Button variant="secondary" size="lg">Learn more</Button>
+          <Button variant="outline" size="lg" asChild>
+            <Link href="/signup">
+              {t("home.button-get-started")}
+            </Link>
+          </Button>
+          <Button variant="secondary" size="lg">
+            <Link href="/info">
+              {t("home.button-learn-more")}
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

@@ -1,9 +1,13 @@
 import { handleSignOut } from "@/actions/handleSignOut"
 import { Button } from "../ui/button"
+import { getI18n } from "@/locales/server"
 
-function SignOutButton() {
+async function SignOutButton() {
+    
+    const t = await getI18n()
+
     return (
-        <Button variant="link" className="cursor-pointer p-0" onClick={handleSignOut}>signout</Button>
+        <Button variant="link" className="cursor-pointer p-0" onClick={handleSignOut}>{t("layout.links.logout")}</Button>
     )
 }
 
