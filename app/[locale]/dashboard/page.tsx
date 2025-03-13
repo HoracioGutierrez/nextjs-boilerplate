@@ -1,3 +1,4 @@
+import AccountModal from "@/components/dashboard/account-modal"
 import { Button } from "@/components/ui/button"
 import { getI18n } from "@/locales/server"
 import { createClient } from "@/supabase/server"
@@ -22,9 +23,6 @@ async function DashboardPage() {
                 <div className="border p-2 md:p-4 rounded-lg">
                     <div className="flex justify-between items-center mb-5">
                         <h3 className="font-bold text-xl">{t("dashboard.sections.account.title")}</h3>
-                        <Button variant="ghost" size="icon" className="rounded-full p-2">
-                            <Edit />
-                        </Button>
                     </div>
                     <div className="flex items-center gap-4 ">
                         {data.user.user_metadata.avatar_url && (
@@ -46,7 +44,11 @@ async function DashboardPage() {
                             />
                         )}
                         <div>
-                            <h3 className="font-bold text-xl">{data.user.user_metadata.full_name}</h3>
+                            <h3 className="font-bold text-xl">{
+                                data.user.user_metadata.first_name && data.user.user_metadata.last_name ?
+                                data.user.user_metadata.first_name + " " + data.user.user_metadata.last_name :
+                                "No name set"
+                            } </h3>
                             <p className="text-muted-foreground">{data.user.email}</p>
                         </div>
                     </div>
@@ -54,9 +56,7 @@ async function DashboardPage() {
                 <div className="border p-2 md:p-4 rounded-lg">
                     <div className="flex justify-between items-center mb-5">
                         <h3 className="font-bold text-xl">{t("dashboard.sections.personal_info.title")}</h3>
-                        <Button variant="ghost" size="icon" className="rounded-full p-2">
-                            <Edit />
-                        </Button>
+                        <AccountModal />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl">
                         <div>
