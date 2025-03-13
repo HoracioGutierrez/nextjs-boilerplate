@@ -1,5 +1,8 @@
+import { Button } from "@/components/ui/button"
 import { getI18n } from "@/locales/server"
 import { createClient } from "@/supabase/server"
+import { Edit } from "lucide-react"
+import Image from "next/image"
 import { redirect } from "next/navigation"
 
 async function DashboardPage() {
@@ -12,9 +15,70 @@ async function DashboardPage() {
         return redirect("/login")
     }
 
-    console.log("🚀 ~ DashboardPage ~ data:", data)
     return (
-        <div>{t("hello")} {data.user.email}</div>
+        <section className="grow flex flex-col">
+            <h2 className="font-bold text-2xl mb-16">Perfil</h2>
+            <div className="flex flex-col gap-8">
+                <div className="border p-2 md:p-4 rounded-lg">
+                    <div className="flex justify-between items-center mb-8">
+                        <h3 className="font-bold text-xl">Account Info</h3>
+                        <Button variant="ghost" size="icon" className="rounded-full p-2">
+                            <Edit />
+                        </Button>
+                    </div>
+                    <div className="flex items-center gap-4 ">
+                        {data.user.user_metadata.avatar_url && (
+                            <Image
+                                src={data.user.user_metadata.avatar_url}
+                                alt="avatar"
+                                width={75}
+                                height={75}
+                                className="rounded-full"
+                            />
+                        )}
+                        {!data.user.user_metadata.avatar_url && (
+                            <img
+                                src="https://api.dicebear.com/9.x/identicon/svg"
+                                alt="avatar"
+                                className="rounded-full"
+                                width={75}
+                                height={75}
+                            />
+                        )}
+                        <div>
+                            <h3 className="font-bold text-xl">{data.user.user_metadata.full_name}</h3>
+                            <p className="text-muted-foreground">{data.user.email}</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="border p-2 md:p-4 rounded-lg">
+                    <div className="flex justify-between items-center mb-8">
+                        <h3 className="font-bold text-xl">Personal Info</h3>
+                        <Button variant="ghost" size="icon" className="rounded-full p-2">
+                            <Edit />
+                        </Button>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl">
+                        <div>
+                            <label className="block text-sm font-medium text-muted-foreground/30 dark:text-muted">First Name</label>
+                            <p className="text-muted-foreground">{data.user.user_metadata.first_name || "Not set"}</p>
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-muted-foreground/30 dark:text-muted">Last Name</label>
+                            <p className="text-muted-foreground">{data.user.user_metadata.last_name || "Not set"}</p>
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-muted-foreground/30 dark:text-muted">Email</label>
+                            <p className="text-muted-foreground">{data.user.email || "Not set"}</p>
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-muted-foreground/30 dark:text-muted">Phone</label>
+                            <p className="text-muted-foreground">{data.user.user_metadata.phone || "Not set"}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     )
 }
 
