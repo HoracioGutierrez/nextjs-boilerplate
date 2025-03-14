@@ -1,13 +1,16 @@
 import { Button } from "../ui/button"
 import { handleGoogleSignUp } from "@/actions/handleGoogleSignUp"
 import GoogleIcon from "./google-icon";
+import { getI18n } from "@/locales/server";
 
 
-function GoogleAuthButton() {
+async function GoogleAuthButton() {
+
+    const t = await getI18n()
 
     return (
         <Button onClick={handleGoogleSignUp} type="button">
-            <GoogleIcon /> Sign up/in with Google
+            <GoogleIcon /> {t("google-auth")}
         </Button>
     )
 }

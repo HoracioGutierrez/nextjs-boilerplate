@@ -13,6 +13,36 @@ export default {
                 'email': 'Correo Electrónico',
                 'phone': 'Teléfono'
             }
+        },
+        'account-modal': {
+            'title': 'Editar Información de la Cuenta',
+            'description': 'Esta acción no se puede deshacer. Esto modificará permanentemente su cuenta.',
+            'loading': 'Actualizando detalles de la cuenta',
+            'success': 'Detalles de la cuenta actualizados',
+            'error': 'Error al actualizar los detalles de la cuenta',
+            'fields': {
+                'email': {
+                    'label': 'Correo Electrónico',
+                    'placeholder': 'ejemplo@mail'
+                },
+                'phone': {
+                    'label': 'Teléfono',
+                    'placeholder': 'teléfono'
+                },
+                'first_name': {
+                    'label': 'Nombre',
+                    'placeholder': 'nombre'
+                },
+                'last_name': {
+                    'label': 'Apellido',
+                    'placeholder': 'apellido'
+                }
+            },
+            'buttons': {
+                'close': 'Cerrar',
+                'submit': 'Guardar',
+                'loading': 'Guardando'
+            }
         }
     },
     'home' : {
@@ -32,6 +62,21 @@ export default {
         'button' : 'Registrarse',
         'button-loading' : 'Registrando',
         'google' : 'Registrarse con Google'
+    },
+    "google-auth": "Acceder con Google",
+    'signin' : {
+        'title' : 'Iniciar Sesión',
+        'email' : {
+            'placeholder' : 'ejemplo@mail',
+            'label' : 'Correo Electrónico'
+        },
+        'password' : {
+            'placeholder' : 'contraseña',
+            'label' : 'Contraseña'
+        },
+        'button' : 'Iniciar Sesión',
+        'button-loading' : 'Iniciando Sesión',
+        'google' : 'Iniciar Sesión con Google'
     },
     'layout' : {
         'links' : {
