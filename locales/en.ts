@@ -19,10 +19,24 @@ export default {
         'button-get-started': 'Get started',
         'button-learn-more': 'Learn more',
     },
+    'signup' : {
+        'title' : 'Sign Up',
+        'email' : {
+            'placeholder' : 'example@mail',
+            'label' : 'Email'
+        },
+        'password' : {
+            'placeholder' : 'password',
+            'label' : 'Password'
+        },
+        'button' : 'Sign Up',
+        'button-loading' : 'Signing up',
+        'google' : 'Sign Up with Google'
+    },
     'layout' : {
         'links' : {
             'home': 'home',
-            'signup': 'sign Up',
+            'signup': 'sign up',
             'login': 'log in',
             'dashboard': 'dashboard',
             'logout': 'logout'

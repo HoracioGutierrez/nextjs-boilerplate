@@ -19,6 +19,20 @@ export default {
         'button-get-started': 'Comenzar',
         'button-learn-more': 'Más información',
     },
+    'signup' : {
+        'title' : 'Registrarse',
+        'email' : {
+            'placeholder' : 'ejemplo@mail',
+            'label' : 'Correo Electrónico'
+        },
+        'password' : {
+            'placeholder' : 'contraseña',
+            'label' : 'Contraseña'
+        },
+        'button' : 'Registrarse',
+        'button-loading' : 'Registrando',
+        'google' : 'Registrarse con Google'
+    },
     'layout' : {
         'links' : {
             'home': 'inicio',
