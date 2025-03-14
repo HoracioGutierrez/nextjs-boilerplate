@@ -11,7 +11,7 @@ async function Drawer({ links }: { links: any }) {
     return (
         <ShadCNDrawer>
             <DrawerTrigger asChild>
-                <Button variant="outline" size="icon">
+                <Button variant="outline" size="icon" className="md:hidden">
                     <Menu />
                 </Button>
             </DrawerTrigger>
