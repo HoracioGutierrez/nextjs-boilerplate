@@ -92,6 +92,10 @@ export default {
         'footer' : {
             'copyright' : "Todos los derechos reservados.",
             'created_by' : "Creado por"
+        },
+        'drawer' : {
+            'close': 'cerrar',
+            'menu' : 'Menú'
         }
     }
 } as const
