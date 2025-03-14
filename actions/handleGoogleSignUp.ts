@@ -8,7 +8,7 @@ export const handleGoogleSignUp = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-            redirectTo: process.env.NEXT_PUBLIC_GOOGLE_REDIRECT_URL || "http://localhost:3000/en/auth/callback"
+            redirectTo: process.env.NEXT_PUBLIC_GOOGLE_REDIRECT_URL
         }
     })
 
