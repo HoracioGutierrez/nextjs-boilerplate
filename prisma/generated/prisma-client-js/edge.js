@@ -145,7 +145,8 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null
+    "rootEnvPath": null,
+    "schemaEnvPath": "../../../.env"
   },
   "relativePath": "../..",
   "clientVersion": "6.5.0",
@@ -158,13 +159,13 @@ const config = {
   "inlineDatasources": {
     "db": {
       "url": {
-        "fromEnvVar": null,
-        "value": "postgresql://postgres:Avid1104!@db.ncxaakhoxueadulckahb.supabase.co:5432/postgres"
+        "fromEnvVar": "NEXT_PUBLIC_DATABASE_URL",
+        "value": null
       }
     }
   },
-  "inlineSchema": "datasource db {\n  provider = \"postgresql\"\n  url      = \"postgresql://postgres:Avid1104!@db.ncxaakhoxueadulckahb.supabase.co:5432/postgres\"\n}\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"./generated/prisma-client-js\"\n}\n\nmodel users {\n  id         Int      @id @default(autoincrement())\n  email      String   @unique\n  name       String?\n  created_at DateTime @default(now())\n  updated_at DateTime @updatedAt\n}\n",
-  "inlineSchemaHash": "c18e4052f2928d8e6d8eff6aff69b524794f071d4c679e9fb20f4f9228fabc99",
+  "inlineSchema": "datasource db {\n  provider = \"postgresql\"\n  url      = env(\"NEXT_PUBLIC_DATABASE_URL\")\n}\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"./generated/prisma-client-js\"\n}\n\nmodel users {\n  id         Int      @id @default(autoincrement())\n  email      String   @unique\n  name       String?\n  created_at DateTime @default(now())\n  updated_at DateTime @updatedAt\n}\n",
+  "inlineSchemaHash": "c91f359574bd09f031d19f472014d4a4da7253579e21a5fc8221a7d576a7e2e2",
   "copyEngine": true
 }
 config.dirname = '/'
@@ -175,7 +176,9 @@ config.engineWasm = undefined
 config.compilerWasm = undefined
 
 config.injectableEdgeEnv = () => ({
-  parsed: {}
+  parsed: {
+    NEXT_PUBLIC_DATABASE_URL: typeof globalThis !== 'undefined' && globalThis['NEXT_PUBLIC_DATABASE_URL'] || typeof process !== 'undefined' && process.env && process.env.NEXT_PUBLIC_DATABASE_URL || undefined
+  }
 })
 
 if (typeof globalThis !== 'undefined' && globalThis['DEBUG'] || typeof process !== 'undefined' && process.env && process.env.DEBUG || undefined) {

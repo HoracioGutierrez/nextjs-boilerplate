@@ -1,6 +1,6 @@
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://postgres:Avid1104!@db.ncxaakhoxueadulckahb.supabase.co:5432/postgres"
+  url      = env("NEXT_PUBLIC_DATABASE_URL")
 }
 
 generator client {
