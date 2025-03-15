@@ -5,6 +5,12 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { getI18n } from "@/locales/server"
 import Form from "next/form"
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title : "Sign In",
+}
+
 
 async function LoginPage() {
 

@@ -4,7 +4,12 @@ import SignUpButton from '@/components/signup/signup-button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { getI18n } from '@/locales/server';
+import type { Metadata } from "next";
 import Form from 'next/form'
+
+export const metadata: Metadata = {
+    title : "Sign Up",
+}
 
 async function SignupPage() {
 

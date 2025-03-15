@@ -20,7 +20,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NextJS Boilerplate",
+  title : {
+    default : "NextJS Boilerplate",
+    template : "NextJS Boilerplate | %s",
+  },
   description: "NextJS Boilerplate with TypeScript, TailwindCSS, Internationalization, Supabase and more.",
 };
 

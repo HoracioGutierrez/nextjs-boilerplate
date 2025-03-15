@@ -1,10 +1,14 @@
 import AccountModal from "@/components/dashboard/account-modal"
-import { Button } from "@/components/ui/button"
 import { getI18n } from "@/locales/server"
 import { createClient } from "@/supabase/server"
-import { Edit } from "lucide-react"
 import Image from "next/image"
 import { redirect } from "next/navigation"
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title : "Dashboard",
+}
+
 
 async function DashboardPage() {
 
