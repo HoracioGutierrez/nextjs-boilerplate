@@ -8,7 +8,7 @@ export default async function ResetPasswordPage() {
 
 	return (
 		<div className="flex grow flex-col items-center justify-center p-4">
-			<div className="w-full max-w-md space-y-8">
+			<div className="w-full max-w-sm space-y-8">
 				<div className="text-center max-w-sm">
 					<h1 className="text-2xl font-bold">{t("reset-password.title")}</h1>
 					<p className="mt-2 text-sm text-muted-foreground">
