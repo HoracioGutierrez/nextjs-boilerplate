@@ -76,7 +76,10 @@ export default {
         },
         'button' : 'Sign In',
         'button-loading' : 'Signing in',
-        'google' : 'Sign In with Google'
+        'google' : 'Sign In with Google',
+        'error' : {
+            'unknown' : 'An unexpected error occurred during sign in'
+        }
     },
     'layout' : {
         'links' : {

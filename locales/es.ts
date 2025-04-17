@@ -76,7 +76,10 @@ export default {
         },
         'button' : 'Iniciar Sesión',
         'button-loading' : 'Iniciando Sesión',
-        'google' : 'Iniciar Sesión con Google'
+        'google' : 'Iniciar Sesión con Google',
+        'error' : {
+            'unknown' : 'Ocurrió un error inesperado durante el inicio de sesión'
+        }
     },
     'layout' : {
         'links' : {
