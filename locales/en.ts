@@ -76,7 +76,31 @@ export default {
         },
         'button' : 'Sign In',
         'button-loading' : 'Signing in',
-        'google' : 'Sign In with Google'
+        'google' : 'Sign In with Google',
+        'error' : {
+            'unknown' : 'An unexpected error occurred during sign in'
+        },
+        'forgot-password' : 'Forgot your password?'
+    },
+    'reset-password': {
+        'title': 'Reset Password',
+        'description': 'Enter your email address and we will send you a link to reset your password.',
+        'email': {
+            'label': 'Email',
+            'placeholder': 'example@mail'
+        },
+        'button': 'Send Reset Link',
+        'button-loading': 'Sending Reset Link',
+        'confirm': {
+            'title': 'Set New Password',
+            'description': 'Please enter your new password.',
+            'password': {
+                'label': 'New Password',
+                'placeholder': 'new password'
+            },
+            'button': 'Update Password',
+            'button-loading': 'Updating Password'
+        }
     },
     'layout' : {
         'links' : {

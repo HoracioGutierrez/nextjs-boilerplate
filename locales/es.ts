@@ -76,7 +76,31 @@ export default {
         },
         'button' : 'Iniciar Sesión',
         'button-loading' : 'Iniciando Sesión',
-        'google' : 'Iniciar Sesión con Google'
+        'google' : 'Iniciar Sesión con Google',
+        'error' : {
+            'unknown' : 'Ocurrió un error inesperado durante el inicio de sesión'
+        },
+        'forgot-password' : '¿Olvidaste tu contraseña?'
+    },
+    'reset-password': {
+        'title': 'Restablecer Contraseña',
+        'description': 'Ingresa tu dirección de correo electrónico y te enviaremos un enlace para restablecer tu contraseña.',
+        'email': {
+            'label': 'Correo Electrónico',
+            'placeholder': 'ejemplo@mail'
+        },
+        'button': 'Enviar Enlace de Restablecimiento',
+        'button-loading': 'Enviando Enlace de Restablecimiento',
+        'confirm': {
+            'title': 'Establecer Nueva Contraseña',
+            'description': 'Por favor ingresa tu nueva contraseña.',
+            'password': {
+                'label': 'Nueva Contraseña',
+                'placeholder': 'nueva contraseña'
+            },
+            'button': 'Actualizar Contraseña',
+            'button-loading': 'Actualizando Contraseña'
+        }
     },
     'layout' : {
         'links' : {
