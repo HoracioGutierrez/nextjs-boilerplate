@@ -1,21 +1,12 @@
 "use client";
 
-import { useFormStatus } from "react-dom";
-import { Button } from "../ui/button";
-import { Loader } from "lucide-react";
-import { useI18n } from "@/locales/client";
+import { LoadingButton } from "@/components/ui/loading-button";
 
-function SignUpButton() {
-
-    const { pending } = useFormStatus()
-    const t = useI18n()
-
-    return (
-        <Button disabled={pending}>
-            {pending && <Loader className="animate-spin" />}
-            {pending ? `${t("signup.button-loading")}...` : t("signup.button")}
-        </Button>
-    )
+export default function SignUpButton() {
+  return (
+    <LoadingButton
+      loadingTextKey="signup.button-loading"
+      textKey="signup.button"
+    />
+  );
 }
-
-export default SignUpButton

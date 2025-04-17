@@ -1,22 +1,13 @@
 "use client";
 
-import { useI18n } from "@/locales/client";
-import { Button } from "@/components/ui/button";
-import { useFormStatus } from "react-dom";
+import { LoadingButton } from "@/components/ui/loading-button";
 
 export default function ResetPasswordConfirmButton() {
-	const t = useI18n();
-	const { pending } = useFormStatus();
-
 	return (
-		<Button
-			type="submit"
+		<LoadingButton
+			loadingTextKey="reset-password.confirm.button-loading"
+			textKey="reset-password.confirm.button"
 			className="w-full"
-			disabled={pending}
-		>
-			{pending
-				? t("reset-password.confirm.button-loading")
-				: t("reset-password.confirm.button")}
-		</Button>
+		/>
 	);
 }
