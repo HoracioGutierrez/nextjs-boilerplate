@@ -89,13 +89,17 @@ export default {
             'label': 'Email',
             'placeholder': 'example@mail'
         },
+        'button': 'Send Reset Link',
+        'button-loading': 'Sending Reset Link',
         'confirm': {
             'title': 'Set New Password',
             'description': 'Please enter your new password.',
             'password': {
                 'label': 'New Password',
                 'placeholder': 'new password'
-            }
+            },
+            'button': 'Update Password',
+            'button-loading': 'Updating Password'
         }
     },
     'layout' : {

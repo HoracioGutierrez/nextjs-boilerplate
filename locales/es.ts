@@ -89,13 +89,17 @@ export default {
             'label': 'Correo Electrónico',
             'placeholder': 'ejemplo@mail'
         },
+        'button': 'Enviar Enlace de Restablecimiento',
+        'button-loading': 'Enviando Enlace de Restablecimiento',
         'confirm': {
             'title': 'Establecer Nueva Contraseña',
             'description': 'Por favor ingresa tu nueva contraseña.',
             'password': {
                 'label': 'Nueva Contraseña',
                 'placeholder': 'nueva contraseña'
-            }
+            },
+            'button': 'Actualizar Contraseña',
+            'button-loading': 'Actualizando Contraseña'
         }
     },
     'layout' : {

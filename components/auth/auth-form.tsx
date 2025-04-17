@@ -39,7 +39,6 @@ function AuthForm({ children, action, formType }: AuthFormProps) {
 		if (formType === "reset-password-confirm") {
 			toast.success("Password updated successfully");
 			redirect("/login");
-			return;
 		}
 
 		if (result.data) {
@@ -95,7 +94,7 @@ function AuthForm({ children, action, formType }: AuthFormProps) {
 				</div>
 			)}
 			{children}
-			{formType === "signin" && (
+			{(formType === "signin" || formType === "signup") && (
 				<Button variant="link" className="p-0" asChild>
 					<Link href="/reset-password">{t("signin.forgot-password")}</Link>
 				</Button>
