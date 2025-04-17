@@ -5,11 +5,9 @@ import { Loader } from "lucide-react";
 import { useFormStatus } from "react-dom";
 import { useI18n } from "@/locales/client";
 
-type TranslationKey = Parameters<ReturnType<typeof useI18n>>[0];
-
 interface LoadingButtonProps {
-	loadingTextKey: TranslationKey;
-	textKey: TranslationKey;
+	loadingTextKey: string;
+	textKey: string;
 	className?: string;
 	type?: "button" | "submit" | "reset";
 }
@@ -26,7 +24,7 @@ export function LoadingButton({
 	return (
 		<Button type={type} className={className} disabled={pending}>
 			{pending && <Loader className="animate-spin" />}
-			{pending ? t(loadingTextKey) : t(textKey)}
+			{pending ? loadingTextKey : textKey}
 		</Button>
 	);
 }
