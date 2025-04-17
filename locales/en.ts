@@ -79,6 +79,23 @@ export default {
         'google' : 'Sign In with Google',
         'error' : {
             'unknown' : 'An unexpected error occurred during sign in'
+        },
+        'forgot-password' : 'Forgot your password?'
+    },
+    'reset-password': {
+        'title': 'Reset Password',
+        'description': 'Enter your email address and we will send you a link to reset your password.',
+        'email': {
+            'label': 'Email',
+            'placeholder': 'example@mail'
+        },
+        'confirm': {
+            'title': 'Set New Password',
+            'description': 'Please enter your new password.',
+            'password': {
+                'label': 'New Password',
+                'placeholder': 'new password'
+            }
         }
     },
     'layout' : {

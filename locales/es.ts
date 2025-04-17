@@ -79,6 +79,23 @@ export default {
         'google' : 'Iniciar Sesión con Google',
         'error' : {
             'unknown' : 'Ocurrió un error inesperado durante el inicio de sesión'
+        },
+        'forgot-password' : '¿Olvidaste tu contraseña?'
+    },
+    'reset-password': {
+        'title': 'Restablecer Contraseña',
+        'description': 'Ingresa tu dirección de correo electrónico y te enviaremos un enlace para restablecer tu contraseña.',
+        'email': {
+            'label': 'Correo Electrónico',
+            'placeholder': 'ejemplo@mail'
+        },
+        'confirm': {
+            'title': 'Establecer Nueva Contraseña',
+            'description': 'Por favor ingresa tu nueva contraseña.',
+            'password': {
+                'label': 'Nueva Contraseña',
+                'placeholder': 'nueva contraseña'
+            }
         }
     },
     'layout' : {

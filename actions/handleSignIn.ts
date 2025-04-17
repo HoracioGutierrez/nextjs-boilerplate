@@ -2,7 +2,6 @@
 
 import { userSchema } from "@/lib/schemas";
 import { createClient } from "@/supabase/server";
-/* import { redirect } from "next/navigation"; */
 
 export const handleSignIn = async (formData: FormData) => {
 	try {
