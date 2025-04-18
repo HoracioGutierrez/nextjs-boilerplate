@@ -4,6 +4,7 @@ import { getI18n } from "@/locales/server";
 import type { Metadata } from "next";
 import AuthForm from "@/components/auth/auth-form";
 import { handleSignIn } from "@/actions/handleSignIn";
+import PageHeading from "@/components/main-layout/page-heading";
 
 export const metadata: Metadata = {
 	title: "Sign In",
@@ -14,7 +15,7 @@ async function LoginPage() {
 
 	return (
 		<section className="grow flex flex-col justify-center items-center">
-			<h2 className="mb-16 font-bold text-2xl">{t("signin.title")}</h2>
+			<PageHeading text={t("signin.title")} />
 			<AuthForm action={handleSignIn} formType="signin">
 				<SignInButton />
 				<GoogleAuthButton />

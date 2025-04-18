@@ -4,7 +4,7 @@ import SignUpButton from "@/components/signup/signup-button";
 import { getI18n } from "@/locales/server";
 import type { Metadata } from "next";
 import AuthForm from "@/components/auth/auth-form";
-
+import PageHeading from "@/components/main-layout/page-heading";
 export const metadata: Metadata = {
 	title: "Sign Up",
 };
@@ -14,7 +14,7 @@ async function SignupPage() {
 
 	return (
 		<section className="grow flex flex-col justify-center items-center">
-			<h2 className="mb-16 font-bold text-2xl">{t("signup.title")}</h2>
+			<PageHeading text={t("signup.title")} />
 			<AuthForm action={handleSignUp} formType="signup">
 				<SignUpButton />
 				<GoogleAuthButton />
