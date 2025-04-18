@@ -19,6 +19,7 @@ import AccountModalButton from "./acount-modal-button";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useI18n } from "@/locales/client";
+import { LoadingButton } from "../ui/loading-button";
 
 function AccountModal({ user }: { user: any }) {
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -50,7 +51,9 @@ function AccountModal({ user }: { user: any }) {
 				<DialogHeader>
 					<DialogTitle>{t("dashboard.account-modal.title")}</DialogTitle>
 					<DialogDescription>
-						{t("dashboard.account-modal.description")}
+						<span className="text-sm-base-clamp text-muted-foreground/30 dark:text-muted">
+							{t("dashboard.account-modal.description")}
+						</span>
 					</DialogDescription>
 				</DialogHeader>
 				<Form action={handleFormAction} className="flex flex-col gap-4">
@@ -115,10 +118,15 @@ function AccountModal({ user }: { user: any }) {
 					<DialogFooter>
 						<DialogClose asChild>
 							<Button type="button">
-								{t("dashboard.account-modal.buttons.close")}
+								<span className="text-xs-sm-clamp">
+									{t("dashboard.account-modal.buttons.close")}
+								</span>
 							</Button>
 						</DialogClose>
-						<AccountModalButton />
+						<LoadingButton
+							loadingTextKey="dashboard.account-modal.buttons.loading"
+							textKey="dashboard.account-modal.buttons.submit"
+						/>
 					</DialogFooter>
 				</Form>
 			</DialogContent>
