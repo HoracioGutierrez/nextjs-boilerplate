@@ -59,7 +59,7 @@ async function DashboardPage() {
 				</Card>
 				<Card>
 					<CardHeader>
-						<CardTitle className="flex justify-between items-center">
+						<CardTitle className="flex justify-between items-start relative">
 							{t("dashboard.sections.personal_info.title")}
 							<AccountModal user={data.user || {}} />
 						</CardTitle>
