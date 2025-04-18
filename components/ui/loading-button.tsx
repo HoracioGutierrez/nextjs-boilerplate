@@ -24,7 +24,7 @@ export function LoadingButton({
 	return (
 		<Button type={type} className={className} disabled={pending}>
 			{pending && <Loader className="animate-spin" />}
-			{pending ? loadingTextKey : textKey}
+			{pending ? t(loadingTextKey) : t(textKey)}
 		</Button>
 	);
 }

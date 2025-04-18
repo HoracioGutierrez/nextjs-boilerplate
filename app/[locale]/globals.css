@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tw-clamp-css";
 
 @plugin "tailwindcss-animate";
 
