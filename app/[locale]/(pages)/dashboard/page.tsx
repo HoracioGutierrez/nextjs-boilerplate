@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-
+import PageHeading from "@/components/main-layout/page-heading";
 export const metadata: Metadata = {
 	title: "Dashboard",
 };
@@ -30,7 +30,7 @@ async function DashboardPage() {
 
 	return (
 		<section className="grow flex flex-col">
-			<h2 className="font-bold text-2xl mb-10">{t("dashboard.title")}</h2>
+			<PageHeading text={t("dashboard.title")} />
 			<div className="flex flex-col gap-8">
 				<Card>
 					<CardHeader>

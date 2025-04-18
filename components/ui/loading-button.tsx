@@ -24,7 +24,9 @@ export function LoadingButton({
 	return (
 		<Button type={type} className={className} disabled={pending}>
 			{pending && <Loader className="animate-spin" />}
-			{pending ? t(loadingTextKey) : t(textKey)}
+			<span className="text-xs-sm-clamp font-bold md:font-medium">
+				{pending ? t(loadingTextKey) : t(textKey)}
+			</span>
 		</Button>
 	);
 }

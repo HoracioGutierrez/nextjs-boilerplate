@@ -15,7 +15,7 @@ async function LoginPage() {
 
 	return (
 		<section className="grow flex flex-col justify-center items-center">
-			<PageHeading text={t("signin.title")} />
+			<PageHeading text={t("signin.title")} className="mb-14-20-clamp"/>
 			<AuthForm action={handleSignIn} formType="signin">
 				<SignInButton />
 				<GoogleAuthButton />

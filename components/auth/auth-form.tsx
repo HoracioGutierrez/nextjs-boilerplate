@@ -81,24 +81,31 @@ function AuthForm({ children, action, formType }: AuthFormProps) {
 								: `${formType}.password.label`,
 						)}
 					</Label>
-					<Input
-						type="password"
-						id="password"
-						name="password"
-						placeholder={t(
-							formType === "reset-password-confirm"
-								? "reset-password.confirm.password.placeholder"
-								: `${formType}.password.placeholder`,
+					<div className="flex flex-col items-end">
+						<Input
+							type="password"
+							id="password"
+							name="password"
+							placeholder={t(
+								formType === "reset-password-confirm"
+									? "reset-password.confirm.password.placeholder"
+									: `${formType}.password.placeholder`,
+							)}
+						/>
+						{(formType === "signin" || formType === "signup") && (
+							<Button variant="link" className="p-0" asChild>
+								<Link
+									href="/reset-password"
+									className="text-xs-sm-clamp !text-muted-foreground"
+								>
+									{t("signin.forgot-password")}
+								</Link>
+							</Button>
 						)}
-					/>
+					</div>
 				</div>
 			)}
 			{children}
-			{(formType === "signin" || formType === "signup") && (
-				<Button variant="link" className="p-0" asChild>
-					<Link href="/reset-password">{t("signin.forgot-password")}</Link>
-				</Button>
-			)}
 		</Form>
 	);
 }
