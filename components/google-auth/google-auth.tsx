@@ -8,7 +8,10 @@ async function GoogleAuthButton() {
 
 	return (
 		<Button onClick={handleGoogleSignUp} type="button">
-			<GoogleIcon /> {t("google-auth")}
+			<GoogleIcon />
+			<span className="text-xs-sm-clamp font-bold md:font-medium">
+				{t("google-auth")}
+			</span>
 		</Button>
 	);
 }

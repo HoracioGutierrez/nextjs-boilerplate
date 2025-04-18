@@ -15,7 +15,7 @@ function LangToggle() {
     }
 
     return (
-        <Button variant="link" className="cursor-pointer p-0" onClick={handleLocaleChange}>
+        <Button variant="ghost" size="icon" onClick={handleLocaleChange}>
             {currentLocale === "en" ? "ES" : "EN"}
         </Button>
     )
