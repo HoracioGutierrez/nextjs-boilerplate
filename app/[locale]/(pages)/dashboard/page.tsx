@@ -31,7 +31,7 @@ async function DashboardPage() {
 	return (
 		<section className="grow flex flex-col">
 			<PageHeading text={t("dashboard.title")} />
-			<div className="flex flex-col gap-8">
+			<div className="flex flex-col gap-2-4-clamp">
 				<Card>
 					<CardHeader>
 						<CardTitle>{t("dashboard.sections.account.title")}</CardTitle>
@@ -46,13 +46,15 @@ async function DashboardPage() {
 								alt="avatar"
 								width={75}
 								height={75}
-								className="rounded-full"
+								className="rounded-full size-12-16-clamp"
 							/>
 							<div>
-								<h3 className="font-bold text-xl">
+								<h3 className="font-bold text-lg-xl-clamp">
 									{data.user.user_metadata.first_name || "Not set"}
 								</h3>
-								<p className="text-muted-foreground">{data.user.email}</p>
+								<p className="text-muted-foreground text-sm-base-clamp">
+									{data.user.email}
+								</p>
 							</div>
 						</div>
 					</CardContent>
@@ -70,7 +72,7 @@ async function DashboardPage() {
 								<Label className="block text-sm font-medium text-muted-foreground/30 dark:text-muted">
 									{t("dashboard.sections.personal_info.first_name")}
 								</Label>
-								<p className="text-muted-foreground">
+								<p className="text-muted-foreground text-sm-base-clamp">
 									{data.user.user_metadata.first_name || "Not set"}
 								</p>
 							</div>
@@ -78,7 +80,7 @@ async function DashboardPage() {
 								<Label className="block text-sm font-medium text-muted-foreground/30 dark:text-muted">
 									{t("dashboard.sections.personal_info.last_name")}
 								</Label>
-								<p className="text-muted-foreground">
+								<p className="text-muted-foreground text-sm-base-clamp">
 									{data.user.user_metadata.last_name || "Not set"}
 								</p>
 							</div>
@@ -86,7 +88,7 @@ async function DashboardPage() {
 								<Label className="block text-sm font-medium text-muted-foreground/30 dark:text-muted">
 									{t("dashboard.sections.personal_info.email")}
 								</Label>
-								<p className="text-muted-foreground">
+								<p className="text-muted-foreground text-sm-base-clamp">
 									{data.user.email || "Not set"}
 								</p>
 							</div>
@@ -94,7 +96,7 @@ async function DashboardPage() {
 								<Label className="block text-sm font-medium text-muted-foreground/30 dark:text-muted">
 									{t("dashboard.sections.personal_info.phone")}
 								</Label>
-								<p className="text-muted-foreground">
+								<p className="text-muted-foreground text-sm-base-clamp">
 									{data.user.user_metadata.phone || "Not set"}
 								</p>
 							</div>
