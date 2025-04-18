@@ -1,26 +1,26 @@
+import { handleSignUp } from "@/actions/handleSignUp";
 import GoogleAuthButton from "@/components/google-auth/google-auth";
-import SignInButton from "@/components/signin/signin-button";
+import SignUpButton from "@/components/signup/signup-button";
 import { getI18n } from "@/locales/server";
 import type { Metadata } from "next";
 import AuthForm from "@/components/auth/auth-form";
-import { handleSignIn } from "@/actions/handleSignIn";
-
+import PageHeading from "@/components/main-layout/page-heading";
 export const metadata: Metadata = {
-	title: "Sign In",
+	title: "Sign Up",
 };
 
-async function LoginPage() {
+async function SignupPage() {
 	const t = await getI18n();
 
 	return (
 		<section className="grow flex flex-col justify-center items-center">
-			<h2 className="mb-16 font-bold text-2xl">{t("signin.title")}</h2>
-			<AuthForm action={handleSignIn} formType="signin">
-				<SignInButton />
+			<PageHeading text={t("signup.title")} className="mb-14-20-clamp"/>
+			<AuthForm action={handleSignUp} formType="signup">
+				<SignUpButton />
 				<GoogleAuthButton />
 			</AuthForm>
 		</section>
 	);
 }
 
-export default LoginPage;
+export default SignupPage;
