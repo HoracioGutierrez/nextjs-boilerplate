@@ -1,5 +1,6 @@
 "use server";
 
+import { executeAction } from "@/lib/actionWrapper";
 import { userWithProfile } from "@/lib/schemas";
 import type { ActionResponse } from "@/lib/types";
 import {
@@ -14,7 +15,7 @@ import { revalidatePath } from "next/cache";
 export const handleEditAccountDetails = async (
 	formData: FormData,
 ): Promise<ActionResponse> => {
-	try {
+	return executeAction(async () => {
 		const email = formData.get("email") as string;
 		const phone = formData.get("phone") as string;
 		const first_name = formData.get("first_name") as string;
@@ -46,12 +47,5 @@ export const handleEditAccountDetails = async (
 		revalidatePath("/dashboard");
 
 		return createSuccessResponse(authUser);
-	} catch (error) {
-		if (error instanceof Error) {
-			return createErrorResponse(error.message);
-		}
-		return createErrorResponse(
-			"An unexpected error occurred while updating account details",
-		);
-	}
+	}, "An unexpected error occurred while updating account details");
 };

@@ -1,12 +1,13 @@
 "use server";
 
+import { executeAction } from "@/lib/actionWrapper";
 import type { ActionResponse } from "@/lib/types";
 import { createErrorResponse } from "@/lib/utils";
 import { createClient } from "@/supabase/server";
 import { redirect } from "next/navigation";
 
 export const handleGoogleSignUp = async (): Promise<ActionResponse | never> => {
-	try {
+	return executeAction(async () => {
 		const supabase = await createClient();
 		const { data, error } = await supabase.auth.signInWithOAuth({
 			provider: "google",
@@ -26,12 +27,5 @@ export const handleGoogleSignUp = async (): Promise<ActionResponse | never> => {
 
 		// This should never be reached due to the redirect
 		return createErrorResponse("No redirect URL was provided", 500);
-	} catch (error) {
-		if (error instanceof Error) {
-			return createErrorResponse(error.message);
-		}
-		return createErrorResponse(
-			"An unexpected error occurred during Google sign up",
-		);
-	}
+	}, "An unexpected error occurred during Google sign up");
 };
