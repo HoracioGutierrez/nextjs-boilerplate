@@ -125,7 +125,7 @@
 	}
 
 	body {
-		@apply text-foreground dark:from-background dark:to-secondary to-accent from-muted-foreground/50 bg-gradient-to-b;
+		@apply text-foreground;
 	}
 }
 

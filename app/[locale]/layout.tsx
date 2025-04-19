@@ -41,6 +41,7 @@ async function RootLayout({ children }: RootLayoutProps) {
 					disableTransitionOnChange
 				>
 					<I18nProviderClient locale={(await getCurrentLocale()) || "es"}>
+						<div className="absolute inset-0 -z-10 h-full w-full bg-transparent bg-[radial-gradient(rgba(0,0,0,0.1)_1px,transparent_1px)] dark:bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:24px_24px]" />
 						<Header />
 						<main className="p-2 md:p-4 grow flex-col flex">{children}</main>
 						<Footer />

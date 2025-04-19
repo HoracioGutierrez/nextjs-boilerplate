@@ -1,42 +1,57 @@
-"use server"
+"use server";
 
-import { userWithProfile } from "@/lib/schemas"
-import client from "@/prisma/prisma-client"
-import { createClient } from "@/supabase/server"
-import { revalidatePath } from "next/cache"
+import { userWithProfile } from "@/lib/schemas";
+import type { ActionResponse } from "@/lib/types";
+import {
+	createErrorResponse,
+	createSuccessResponse,
+	createValidationErrorResponse,
+} from "@/lib/utils";
+import client from "@/prisma/prisma-client";
+import { createClient } from "@/supabase/server";
+import { revalidatePath } from "next/cache";
 
-export const handleEditAccountDetails = async (formData: FormData) => {
-    const email = formData.get('email') as string
-    const phone = formData.get('phone') as string
-    const first_name = formData.get('first_name') as string
-    const last_name = formData.get('last_name') as string
-    const userWithNewData = { email, phone, first_name, last_name }
+export const handleEditAccountDetails = async (
+	formData: FormData,
+): Promise<ActionResponse> => {
+	try {
+		const email = formData.get("email") as string;
+		const phone = formData.get("phone") as string;
+		const first_name = formData.get("first_name") as string;
+		const last_name = formData.get("last_name") as string;
+		const userWithNewData = { email, phone, first_name, last_name };
 
-    const t = userWithProfile.isValidSync(userWithNewData)
+		if (!userWithProfile.isValidSync(userWithNewData)) {
+			return createValidationErrorResponse("Invalid user data");
+		}
 
-    if (!userWithProfile.isValidSync(userWithNewData)) {
-        throw new Error('Invalid user data');
-    }
+		const supabase = await createClient();
+		const { data: authUser, error } = await supabase.auth.updateUser({
+			data: { email, phone, first_name, last_name },
+		});
 
+		if (error) {
+			return createErrorResponse(error.message, 400);
+		}
 
-    const supabase = await createClient()
-    const { data : authUser , error } = await supabase.auth.updateUser({
-        data: { email, phone, first_name, last_name }
-    })
+		const updatedUser = await client.users.update({
+			where: { email },
+			data: { name: first_name },
+		});
 
-    if (error) {
-        throw new Error(error.message);
-    }
+		if (!updatedUser) {
+			return createErrorResponse("Error updating user profile", 500);
+		}
 
-    const updatedUser = await client.users.update({
-        where: { email },
-        data: { name: first_name }
-    })
+		revalidatePath("/dashboard");
 
-    if (!updatedUser) {
-        throw new Error('Error updating user profile');
-    }
-
-    return revalidatePath("/dashboard");
-
-}
+		return createSuccessResponse(authUser);
+	} catch (error) {
+		if (error instanceof Error) {
+			return createErrorResponse(error.message);
+		}
+		return createErrorResponse(
+			"An unexpected error occurred while updating account details",
+		);
+	}
+};

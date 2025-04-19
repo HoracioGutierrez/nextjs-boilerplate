@@ -1,63 +1,47 @@
 "use server";
 
 import { userSchema } from "@/lib/schemas";
+import type { ActionResponse } from "@/lib/types";
+import {
+	createErrorResponse,
+	createSuccessResponse,
+	createValidationErrorResponse,
+} from "@/lib/utils";
 import client from "@/prisma/prisma-client";
 import { createClient } from "@/supabase/server";
 
-export const handleSignUp = async (formData: FormData) => {
+export const handleSignUp = async (
+	formData: FormData,
+): Promise<ActionResponse> => {
 	try {
-		const email = formData.get('email') as string;
-		const password = formData.get('password') as string;
+		const email = formData.get("email") as string;
+		const password = formData.get("password") as string;
 		const newUserData = { email, password };
 
 		if (!userSchema.isValidSync(newUserData)) {
-			return {
-				data: null,
-				hasError: true,
-				errorMessage: "Invalid user data",
-			};
+			return createValidationErrorResponse("Invalid user data");
 		}
 
 		const supabase = await createClient();
 		const { data, error: authError } = await supabase.auth.signUp(newUserData);
 
 		if (authError) {
-			return {
-				data: null,
-				hasError: true,
-				errorMessage: authError.message,
-			};
+			return createErrorResponse(authError.message, 401);
 		}
 
 		const newUser = await client.users.create({
-			data: { email }
+			data: { email },
 		});
 
 		if (!newUser) {
-			return {
-				data: null,
-				hasError: true,
-				errorMessage: "Error creating user profile",
-			};
+			return createErrorResponse("Error creating user profile", 500);
 		}
 
-		return {
-			data,
-			hasError: false,
-			errorMessage: "",
-		};
+		return createSuccessResponse(data);
 	} catch (error) {
 		if (error instanceof Error) {
-			return {
-				data: null,
-				hasError: true,
-				errorMessage: error.message,
-			};
+			return createErrorResponse(error.message);
 		}
-		return {
-			data: null,
-			hasError: true,
-			errorMessage: "An unexpected error occurred during sign up",
-		};
+		return createErrorResponse("An unexpected error occurred during sign up");
 	}
 };
